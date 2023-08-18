@@ -1,0 +1,28 @@
+
+
+.titulo{font-family:Courier;
+    color: maroon;
+    padding: 0px 300px 0px 300px;
+    text-align:center;
+    padding: 0px 300px 0px 300px;
+    background-color: #F5EDDA;
+    font-size:35px;
+    text-transform:uppercase;}
+
+p{font-family:Courier;
+  text-indent:30px;
+  background-color:#F5EDDA;
+  font-size:25;
+  text-align:center;
+  padding: 0px 300px 0px 300px;}
+
+h2{font-family:Courier;
+    color: maroon;
+    text-transform:uppercase;
+    text-indent:30px;
+    background-color:#F5EDDA;
+    font-size:25;
+    text-align:center;
+    padding: 0px 300px 0px 300px;}
+
+*{background-color: #F5EDDA;}
