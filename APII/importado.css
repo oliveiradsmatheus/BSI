@@ -1,28 +1,32 @@
 
 
 .titulo{font-family:Courier;
-    color: maroon;
+    color: black;
     padding: 0px 300px 0px 300px;
     text-align:center;
-    padding: 0px 300px 0px 300px;
-    background-color: #F5EDDA;
-    font-size:35px;
+    background-color: #C7FA73;
+    font-size:35px; 
     text-transform:uppercase;}
 
-p{font-family:Courier;
-  text-indent:30px;
-  background-color:#F5EDDA;
-  font-size:25;
-  text-align:center;
+p{font-family:'Franklin Gothic';
+  text-indent: 25px;
+  background-color:whitesmoke;
+  font-size:32;
+  text-align:left;
   padding: 0px 300px 0px 300px;}
 
 h2{font-family:Courier;
-    color: maroon;
+    color: black;
     text-transform:uppercase;
-    text-indent:30px;
-    background-color:#F5EDDA;
-    font-size:25;
-    text-align:center;
-    padding: 0px 300px 0px 300px;}
+    background-color:whitesmoke;
+    font-size:32;
+    text-align:left;
+    padding: 20px 300px 20px 300px;}
 
-*{background-color: #F5EDDA;}
+*{background-color: whitesmoke ;}
+
+h2 em{color:rgb(88, 45, 199);
+      font-weight:bolder;
+      text-transform:uppercase;}
+
+.negrito{font-weight:bold;}
