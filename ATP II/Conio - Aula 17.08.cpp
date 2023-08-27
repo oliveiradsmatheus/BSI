@@ -18,7 +18,7 @@ int main (void)
 	printf("Digite a linha final:<1 a 25>");
 	scanf("%d",&LF);
 	
-	textbackground(5);
+	//textbackground(5);
 	clrscr();
 	textcolor(15);	
 	
