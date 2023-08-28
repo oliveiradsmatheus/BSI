@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+    <style type="text/css">
+        .alinhar{width: 300px;margin:0 auto;}
+        .borda td,th{
+            border-top:3px solid yellowgreen;
+            border-bottom:3px dotted blueviolet;
+            border-left:3px dashed orange;
+            border-right: 3px double lightcoral;
+            /*background-color:rgb(229, 245, 205);-*/
+            border-radius:8px;
+            box-shadow:3px 3px 10px rgb(241, 134, 184);
+            /*Horizontal Vertical Distância Cor*/
+        }
+        /*odd = linhas pares, even = linhas ímpares*/
+        .zebra tr:nth-child(odd){
+            background-color:sandybrown
+        }
+    </style>
+</head>
+<body>
+    </table>
+    <!--table>tr*4>td*2-->
+    <!--<table border="1"-->
+    <!--table>tr*6>td*3{HTML} - Cria uma Tabela com 6 linhas e 3 Colunas-->
+    <table class="alinhar borda zebra">
+        <tr>
+            <td>HTML</td>
+            <td>HTML</td>
+            <td>HTML</td>
+        </tr>
+        <tr>
+            <td>HTML</td>
+            <td>HTML</td>
+            <td>HTML</td>
+        </tr>
+        <tr>
+            <td>HTML</td>
+            <td>HTML</td>
+            <td>HTML</td>
+        </tr>
+        <tr>
+            <td>HTML</td>
+            <td>HTML</td>
+            <td>HTML</td>
+        </tr>
+        <tr>
+            <td>HTML</td>
+            <td>HTML</td>
+            <td>HTML</td>
+        </tr>
+        <tr>
+            <td>HTML</td>
+            <td>HTML</td>
+            <td>HTML</td>
+        </tr>
+    </table>
+
+    <table class="alinhar borda zebra">
+        <caption>Tabela 1 - Boletim Acadêmico</caption>
+        <!--            Cabeçalho            -->
+        <thead>
+        <tr>
+            <th>Disciplina</th> <!--th formatação-->
+            <th>Nota</th>
+        </tr>
+        </thead>
+        <!--              Rodapé              -->
+        <tfoot>
+            <tr>
+                <th colspan="2">FIPP - Unoeste</th>
+            </tr>
+        </tfoot>
+        <!--              Corpo              -->
+        <tbody>
+        <tr> <!--linha-->
+            <td>AP II</td> <!--coluna-->
+            <td>10,0</td>
+        </tr>
+        <tr>
+            <td rowspan="2">ATP I e ATP II</td>
+            <td>9,0</td>
+        </tr>
+        <tr>
+            <td>10,0</td>
+        </tr>
+        <tr>
+            <td>Ciência de Dados</td>
+            <td>9,5</td>
+        </tr>
+        <tr>
+            <td>Arquitetura de Computadores</td>
+            <td>9,6</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
