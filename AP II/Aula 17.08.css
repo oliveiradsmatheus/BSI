@@ -1,0 +1,57 @@
+.titulo{
+  font-family:Courier;
+  color: black;
+  padding: 0px 300px 0px 300px;
+  text-align:center;
+  background: #C7FA73;
+  font-size:35px; 
+  text-transform:uppercase;
+}
+
+p{
+  font-family:'Franklin Gothic';
+  text-indent: 25px;
+  text-align:justify;
+  padding: 0px 300px 0px 300px;
+}
+
+p strong{
+  font-family:'Franklin Gothic';
+  text-indent: 30px;
+}
+
+h2 strong{
+  font-family:Verdana;
+  font-size:32px;
+}
+
+h2{
+  font-family:Verdana;
+  color: black;
+  font-size:32px;
+  text-align:justify;
+  padding: 20px 300px 20px 300px;
+}
+
+body{
+  background:linear-gradient(80deg,rgb(222, 227, 212),white,whitesmoke);
+  background-attachment:fixed;
+}
+
+*{
+  font-size:18px;
+}
+
+.negrito{
+  font-weight:bold;
+}
+
+.sombra{
+  text-shadow:4px 4px 10px rgb(204, 255, 0);
+}
+
+.nome{
+  font-family:Georgia;
+  font-size:40px;
+  color:#2b2b2b;
+}
