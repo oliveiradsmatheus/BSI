@@ -1,0 +1,69 @@
+*{
+    font-family: verdana;
+    background-color: black;
+}
+
+
+
+#cabeçalho{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    
+}
+
+#titulo{
+    text-align: center;
+    font-size: 50px;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+#area-foto{
+    width: 25%;
+    height: 500px;
+    background-color: black;
+    float: left;
+    color: white;
+    text-align: center;
+}
+
+#area-texto{
+    width: 70%;
+    height: 70%;
+    background-color: #191970;
+    float: left;
+}
+
+#texto{
+    color: white;
+    background-color: #191970;
+    padding: 0px 50px;
+    text-align: justify;
+    font-size: 20px;
+}
+
+#rodape{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    float: left;
+    text-align: center;
+    font-size: 80px;
+}
+
+#perfil{
+    height: 70%;
+    width: 60%;
+    border-radius: 100%;
+    border: 5px solid white;
+}
+
+footer img{
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    padding: 10px 10px 10px 10px;
+}

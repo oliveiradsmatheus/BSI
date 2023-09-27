@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Semana de computação e Informática - Unoeste/FIPP</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body class="bg">
+
+    <header>
+        <nav class="topnav">
+            <div class="logo">
+                <a href="home.html" style="text-decoration: none; background-color: transparent;">
+                    <h3>INFO<span>ESTE</span></h3>
+                </a>
+            </div>
+
+            <a href="home.html">Home</a>
+            <a href="CicloPalestra.html">Ciclo de Palestras</a>
+            <a href="FestaLinux.html">Festa Linux</a>
+            <a class="active" href="Cadastro.html">Inscreva-se</a>
+            <a href="Integrantes.html">Integrantes</a>
+        </nav>
+    </header>
+
+    <div class="containerf">
+        <form class="form" action="/action_page.php">
+            <label class="cadtitulo">Cadastro</label><br>
+            <label class="textmin">Os campos marcados com (*) são obrigatórios</label><br><br>
+            <div class="lado">
+                <label for="fname">Nome:</label><br>
+                <input class="campo" type="text" required="required" id="fname" name="fname" placeholder="Nome (*)" size="30">
+            </div>
+            <label for="lname">Sobrenome:</label><br>
+            <input class="campo"  type="text" required="required" id="lname" name="lname" placeholder="Sobrenome (*)" size="30"><br><br>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="lado2">
+                <label for="tdata">Nascimento:</label><br/>
+                <input class="campo2" type="text" required="required" pattern="\d{2}/\d{2}/\d{4}" placeholder="dd/mm/yyyy (*)" id="tdata" maxlength="10"/><br/>
+            </div>
+            <div class="lado2">
+                <label for="tfone">RA:</label><br>
+                <input class="campo2"  type="text" required="required" id="tra" size="30" pattern="\d{2}\.\d{2}\.\d{5}" placeholder="xx.xx.xxxxx (*)" maxlength="11"><br>
+            </div>
+            <label>Sexo:</label><br/>
+            <select name="sexo" class="campo2" required="required">
+                <option value="" disabled selected  style="color: #f0f0f0;">Selecione</option>
+                <option value="1">Feminino</option>
+                <option value="2">Masculino</option>
+                <option value="3">Outros</option>
+            </select><br/>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="lado2">
+                <label for="tfone">CEP:</label><br>
+                <input class="campo2"  type="text" required="required" id="cep" size="30" pattern="\d{5}\-\d{3}\" placeholder="xxxxx-xxx (*)" maxlength="9"><br>
+            </div>
+            <div class="lado3">
+                <label>Endereço:</label><br>
+                <input class="campo"  type="text" required="required" id="end" size="30" placeholder="Rua (*)"><br>
+            </div>
+                <label for="num">Nº:</label><br>
+                <input class="campo3"  type="number" required="required" id="num" placeholder="Num. (*)"><br>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="lado2">
+                <label for="tbairro">Bairro:</label><br/>
+                <input class="campo2" type="text" required="required" placeholder="Bairro (*)" id="tbairro"/><br/>
+            </div>
+            <div class="lado2">
+                <label>Complemento:</label><br>
+                <input class="campo2"  type="text" id="comp" placeholder="Complemento"><br>
+            </div>
+                <label >Cidade:</label><br>
+                <input class="campo2"  type="text" id="cid" required="required" placeholder="Cidade (*)"><br>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="lado2">
+                <label>Estado:</label><br/>
+                <select name="estado" class="campo2" required="required">
+                    <option value="" disabled selected  style="color: #f0f0f0;">Selecione</option>
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                </select><br/>
+            </div>
+            <div class="lado2">
+                <label for="tfone">Telefone:</label><br>
+                <input class="campo2"  type="text" required="required" id="tfone"  pattern="\(\d{2}\)\s\d{5}-\d{4}" placeholder="(xx) xxxxx-xxxx (*)" maxlength="15"><br>
+            </div>
+            <label for="tmail">E-mail:</label><br>
+            <input class="campo2"  type="email" required="required" id="tmail"  placeholder="e-mail (*)"><br><br>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="lado">
+                <!--<label for="tinf">Curso:</label><br/>
+                    <input type="radio" name="tcurso" value="1"/>Ciência da Computação<br/>
+                    <input type="radio" name="tcurso" value="2"/>Sistemas da Informação<br/>
+                    <input type="radio" name="tcurso" value="3"/>Engenharia de Software<br/>
+                    <input type="radio" name="tcurso" value="4"/>Análise e Desenvolvimento de Sistemas<br/>
+                    <input type="radio" name="tcurso" value="5"/>Redes de Computadores<br/>
+                    <input type="radio" name="tcurso" value="6"/>Jogos Digitais<br/>
+                    <input type="radio" name="tcurso" value="7"/>Gestão da Tecnologia da Informação<br/>-->
+                <label>Curso:</label><br>   
+                <select name="curso" class="campo" required="required">
+                    <option value="" disabled selected  style="color: #f0f0f0;">Selecione</option> 
+                    <option value="1">Ciência da Computação</option>
+                    <option value="2">Sistemas da Informação</option>
+                    <option value="3">Engenharia de Software</option>
+                    <option value="4">Análise e Desenvolvimento de Sistemas</option>
+                    <option value="5">Redes de Computadores</option>
+                    <option value="6">Jogos Digitais</option>
+                    <option value="7">Gestão da Tecnologia da Informação</option>
+                    <option value="8">Outros</option>
+                </select><br/>
+            </div>
+            <label>Foto:</label><br/>  
+            <input type="file" name="tfoto"/><br/><br/>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div style="text-align: center;">
+                <input type="submit" value="Concluir">
+                <input type="reset" id="blimpar" value="Limpar">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

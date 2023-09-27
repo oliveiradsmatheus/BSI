@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="forms.css">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+    <h2>Cadastro de Clientes</h2>
+    <form class ="form" name="FCadCli" action="pagina.jsp" method="post">
+        <label for="tnome">Nome:</label>
+        <input type="text" name="tnome" size="40" maxlength="30" placeholder="Digite seu nome aqui..." required="requerid"/><br><br>
+        <label for="tsenha">Senha:</label>
+        <input type="password" name="tsenha" size="30" maxlength="8" placeholder="8 caractéres (números e letras)"/><br><br>
+        <label for="tcursos">Cursos:</label><br><br>
+        <input type="checkbox" name="tcursos" vale="1" checked="checked"/>HTML<br>
+        <input type="checkbox" name="tcursos1" vale="2"/>CSS<br>
+        <input type="checkbox" name="tcursos2" vale="3"/>JAVA<br><br>
+        <label for="tinf">Receber informações:</label><br>
+        <input type="radio" name="tinf" value="1"/>Sim<br>
+        <input type="radio" name="tinf" value="2"/>Não<br><br>
+        <label for="tbusca">Escolher foto:</label>
+        <input type="file" name="tbusca"/><br><br>
+        <label for="tfone">Telefone:</label>
+        <input type="tel" id="tfone" size="40" pattern="\(\d{2}\)\s\d{5}-\d{4}" placeholder="(xx) xxxxx-xxxx"/><br><br>
+        <label for="tmail">e-mail:</label>
+        <input type="email" id="tmail" size="40"/><br><br>
+        <label for="tdata">Data:</label>
+        <input type="date" id="tdata" size="40"/><br><br>
+        <label for="tcid">Cidade:</label>
+        <!--size="3" mostra uma lista e multiple="multiple" permite a seleção de mais de um elemento -->
+        <select name="scid">
+            <option value="1">Pres. Prudente</option>
+            <option value="2">Regente Feijó</option>
+            <option value="3">Anhumas</option>
+        </select>
+        <br><br>
+        <label for="tcom">Comentários:</label><br>
+        <textarea rows="5" cols="50"></textarea><br><br>
+        
+        <input type="button" id="bmensagem" value="OK" onclick="alert('Cadastrado com sucesso!')"/>
+        <input type="reset" id="blimpar" value="Limpar"/> 
+        <input type="submit" id="bgravar" value="Gravar"/>
+    </form>
+</body>
+</html>
