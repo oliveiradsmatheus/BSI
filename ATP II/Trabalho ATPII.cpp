@@ -437,7 +437,11 @@ void ValidaData(int &d, int &m, int &a)
 	{
 		LimpaMsg();
 		LimpaEntrada();
-		scanf("%d %d %d",&d,&m,&a);
+		scanf("%d",&d);
+		LimpaEntrada();
+		scanf("%d",&m);
+		LimpaEntrada();
+		scanf("%d",&a);
 		if(a>=2023 && a<2030)
 		{
 			if((d>=1 && d<=31) && (m==1 || m==3 || m==5 || m==7 || m==8 || m==10 || m==12))
@@ -625,6 +629,17 @@ int BuscaVenda(tpVendas_Prod TabVP[TF],int TLVP,int CodVenda)
 	while(pos<TLVP && CodVenda!=TabVP[pos].CodVenda)
 		pos++;
 	if(pos<TLVP)
+		return pos;
+	else
+		return -1;
+}
+
+int BuscaVendaSeq(tpVendas TabVendas[TF], int TLV, int CodVenda)
+{
+	int pos=0;
+	while(pos<TLV && CodVenda!=TabVendas[pos].CodVenda)
+		pos++;
+	if(pos<TLV)
 		return pos;
 	else
 		return -1;
@@ -1136,6 +1151,7 @@ void ConsultaCli(tpClientes TabCli[TF], int TLC)
 			strcpy(CPF,ValidaString());
 		}
 	}
+	LimpaEntrada();
 }
 
 void ConsultaForn(tpFornecedores Tab[TF], int TLF)
@@ -1192,6 +1208,7 @@ void ConsultaForn(tpFornecedores Tab[TF], int TLF)
 			ValidaInt(Cod);
 		}
 	}
+	LimpaEntrada();
 }
 
 void ConsultaProd(tpProdutos TabProd[TF], int TLP,tpFornecedores TabForn[TF],int TLF)
@@ -1257,6 +1274,7 @@ void ConsultaProd(tpProdutos TabProd[TF], int TLP,tpFornecedores TabForn[TF],int
 			ValidaInt(Cod);
 		}
 	}
+	LimpaEntrada();
 }
 
 void RelatorioForn(tpFornecedores Tab[TF], int TL)
@@ -1390,8 +1408,8 @@ void RelatorioVC(tpVendas TabV[TF],int TLV,tpClientes TabCli[TF],int TLC)
 		LimpaMsg();
 		LimpaEntrada();
 		textcolor(9);
-		gotoxy(3,10);
-		printf("[D] Vendas/Cliente:");
+		gotoxy(3,11);
+		printf("[C] Vendas/Cliente:");
 		textcolor(0);
 		InicioTela(c,l);
 		gotoxy(39,6);
@@ -1449,7 +1467,7 @@ void RelatorioVP(tpVendas_Prod TabVP[TF*10],int TLVP,tpClientes TabCli[TF],int T
 {
 	int i,j,l=7,c=31,pg=1,pos,posProd;
 	
-	if(TLC==0)
+	if(TLVP==0)
 	{
 		EscrMsg();
 		printf("Nao Existem Vendas Registradas!");
@@ -1509,7 +1527,7 @@ void RelatorioVendas(tpVendas TabV[TF],int TLV,tpVendas_Prod TabVP[TF],int TLVP,
 {
 	int i,j,c,l,posProd,posVenda,posForn,pg=1;
 	
-	if(TabV==0)
+	if(TLV==0)
 	{
 		EscrMsg();
 		printf("Nao Existem Vendas Registradas");
@@ -1519,7 +1537,7 @@ void RelatorioVendas(tpVendas TabV[TF],int TLV,tpVendas_Prod TabVP[TF],int TLVP,
 	{
 		InicioTela(c,l);
 		textcolor(9);
-		gotoxy(3,10);
+		gotoxy(3,12);
 		printf("[D] Relatorio de Vendas");
 		textcolor(0);
 		LimpaTela();
@@ -1646,6 +1664,132 @@ void RelatorioCli(tpClientes TabCli[TF],int TLC)
 	}
 }
 
+void ExcVenda(tpClientes TabCli[TF],int &TLC,tpProdutos TabProd[TF],int TLP,tpVendas TabVendas[TF],int &TLV,tpVendas_Prod TabVP[TF], int &TLVP)
+{
+	int C,L,cod,pos,posVP,poscli,posprod,i,j;
+	char cpf[11];
+	float TotMenos;
+	
+	if(TLV==0)
+	{
+		EscrMsg();
+		printf("Nao Existem Vendas Cadastradas!");
+		getch();
+	}
+	else
+	{
+		InicioTela;
+		LimpaMsg();
+		textcolor(9);
+		gotoxy(3,13);
+		printf("[E] Excluir Vendas");
+		textcolor(0);
+		InicioTela(C,L);
+		printf("Exclusao de Vendas");
+		L+=2;
+		gotoxy(C,L);
+		printf("Codigo da Venda: ");
+		LimpaEntrada();
+		ValidaInt(cod);
+		while(cod!=0)
+		{
+			if(cod<=TLV)
+			{
+				pos=BuscaVendaSeq(TabVendas,TLV,cod);
+				InicioTela(C,L);
+				printf("Exclusao de Vendas");
+				L+=2;
+				gotoxy(C,L);
+				printf("Codigo da Venda: %d",TabVendas[pos].CodVenda);
+				L++;
+				strcpy(cpf,TabVendas[pos].cpf);
+				poscli=BuscaCPF(TabCli,TLC,cpf);
+				gotoxy(C,L);
+				printf("Cliente: %s",TabCli[poscli].NomeC);
+				L++;
+				gotoxy(C,L);
+				printf("CPF Cliente: ");
+				for(j=0;j<11;j++)
+				{
+					printf("%c",TabCli[poscli].cpf[j]);
+					if((j!=8) && (j+1)%3==0)
+						printf(".");
+					if(j==8)
+						printf("-");
+				}
+				L++;
+				gotoxy(C,L);
+				printf("Data: %d/%d/%d | Total: R$ %.2f",TabVendas[pos].DtVenda.d,TabVendas[pos].DtVenda.m,TabVendas[pos].DtVenda.a,TabVendas[pos].TotVenda);
+				EscrMsg();
+				printf("Confirma a Exclusao (S/N)?");
+				if(toupper(getch())=='S')
+				{
+					i=0;
+					while(i<TLVP)
+					{
+						if(TabVP[i].CodVenda==TabVendas[pos].CodVenda)
+						{
+							posprod=BuscaCodProd(TabProd,TLP,TabVP[i].CodProd);
+							TabProd[posprod].Estoque+=TabVP[i].Qtde;
+							for(j=i;j<TLVP-1;j++)
+							{
+								TabVP[j]=TabVP[j+1];
+							}
+							TLVP--;
+						}
+						else
+							i++;
+					}
+					for(i=0;i<TLVP;i++)
+						if(TabVP[i].CodVenda>=TabVendas[pos].CodVenda)
+							TabVP[i].CodVenda-=1;
+					TotMenos=TabVendas[pos].TotVenda;
+					for(i=pos;i<TLV-1;i++)
+					{
+						TabVendas[i]=TabVendas[i+1];
+						TabVendas[i].CodVenda-=1;
+					}
+					TLV--;
+					TabCli[poscli].QtdeCompras-=1;
+					TabCli[poscli].ValorTotComp-=TotMenos;
+					EscrMsg();
+					printf("Venda Excluida!");
+					getch();
+				}
+				else
+				{
+					EscrMsg();
+					printf("Exclusao Cancelada!");
+					getch();
+				}
+			}
+			else
+			{
+				EscrMsg();
+				printf("Venda Nao Cadastrada");
+				getch();
+			}
+			if(TLV>0)
+			{
+				LimpaMsg();
+				InicioTela(C,L);
+				printf("Exclusao de Vendas");
+				L+=2;
+				gotoxy(C,L);
+				printf("Codigo da Venda: ");
+				LimpaEntrada();
+				ValidaInt(cod);
+			}
+			else
+			{
+				EscrMsg();
+				printf("Nao Existem Vendas Cadastradas");
+				getch();
+			}
+		}
+	}
+}
+
 void ExcCli(tpClientes TabCli[TF],int &TLC)
 {
 	int pos,i,j,C,L,VCPF;
@@ -1744,6 +1888,7 @@ void ExcCli(tpClientes TabCli[TF],int &TLC)
 				strcpy(cpf,"0");
 		}
 	}
+	LimpaEntrada();
 }
 
 void ExcProd(tpProdutos TabProd[TF],int &TLP,tpFornecedores TabForn[TF], int TLF,tpVendas_Prod TabVP[TF], int TLVP)
@@ -1847,6 +1992,7 @@ void ExcProd(tpProdutos TabProd[TF],int &TLP,tpFornecedores TabForn[TF], int TLF
 				Cod=0;
 		}
 	}
+	LimpaEntrada();
 }
 
 void ExcForn(tpFornecedores Tab[TF],int &TL,tpProdutos TabProd[TF], int TLP)
@@ -3220,7 +3366,7 @@ int main(void)
 									RelatorioVendas(TabVenda,TLV,TabVP,TLVP,TabProd,TLProd,TabForn,TLForn);
 									break;
 								case 'E':
-									/*ExcVenda();*/
+									ExcVenda(TabCli,TLCli,TabProd,TLProd,TabVenda,TLV,TabVP,TLVP);
 									break;
 								case 'F':
 									ConsultaCF(TabVP,TLVP,TabVenda,TLV,TabCli,TLCli,TabProd,TLProd);
